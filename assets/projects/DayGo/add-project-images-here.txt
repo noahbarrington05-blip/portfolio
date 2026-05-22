@@ -1,0 +1,1 @@
+Drop DayGo project images into this folder.

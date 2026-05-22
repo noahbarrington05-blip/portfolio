@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mac portfolio desktop</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="is-booting">
+    <div class="desktop-shell is-booting" id="desktopShell">
+      <div class="boot-loader" id="bootLoader" aria-hidden="true">
+        <div class="boot-loader__progress" aria-hidden="true">
+          <span class="boot-loader__progress-bar"></span>
+        </div>
+      </div>
+
+      <main class="desktop" aria-label="macOS-inspired portfolio desktop">
+        <div class="wallpaper" aria-hidden="true">
+          <div class="wallpaper__image wallpaper__image--dark"></div>
+          <div class="wallpaper__image wallpaper__image--light"></div>
+          <div class="wallpaper__mesh wallpaper__mesh--one"></div>
+          <div class="wallpaper__mesh wallpaper__mesh--two"></div>
+          <div class="wallpaper__mesh wallpaper__mesh--three"></div>
+          <div class="wallpaper__grain"></div>
+        </div>
+
+        <section class="desktop-grid" id="desktopGrid" aria-label="portfolio projects"></section>
+
+        <button
+          class="window-scrim"
+          id="windowScrim"
+          type="button"
+          aria-label="Close open window"
+        ></button>
+
+        <section class="info-window info-window--hidden" id="infoWindow" aria-hidden="true">
+          <div class="info-window__chrome" id="windowChrome">
+            <div class="traffic-lights" aria-hidden="true">
+              <button class="traffic-lights__button traffic-lights__button--close" id="windowClose" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--minimize" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--maximize" type="button"></button>
+            </div>
+            <div class="info-window__title" id="windowChromeTitle">Information about:</div>
+          </div>
+
+          <div class="info-window__body">
+            <header class="info-window__hero">
+              <div class="info-window__preview" id="windowPreview" aria-hidden="true"></div>
+              <div class="info-window__intro">
+                <h1 class="info-window__headline" id="windowTitle"></h1>
+                <p class="info-window__subtitle" id="windowSubtitle"></p>
+              </div>
+            </header>
+
+            <section class="info-window__summary" aria-label="Project summary">
+              <p class="info-window__summary-text" id="windowSummary"></p>
+            </section>
+
+            <section class="info-window__section-block">
+              <button class="info-window__section-toggle is-expanded" id="windowDetailsToggle" type="button" aria-expanded="true">
+                <span class="info-window__section-chevron" aria-hidden="true"></span>
+                <span>Details:</span>
+              </button>
+
+              <div class="info-window__section-panel" id="windowDetailsPanel">
+                <p class="info-window__detail-line">
+                  <span class="info-window__detail-label">Type:</span>
+                  <span class="info-window__detail-value" id="windowTypeLine"></span>
+                </p>
+              </div>
+            </section>
+
+            <section class="info-window__section-block">
+              <button class="info-window__section-toggle is-expanded" id="windowPreviewToggle" type="button" aria-expanded="true">
+                <span class="info-window__section-chevron" aria-hidden="true"></span>
+                <span>Preview:</span>
+              </button>
+
+              <div class="info-window__section-panel" id="windowPreviewPanel">
+                <div class="info-window__preview-large" id="windowPreviewLarge" aria-label="Project preview media"></div>
+              </div>
+            </section>
+          </div>
+
+          <div class="window-resize-handle" aria-hidden="true"></div>
+        </section>
+
+        <section class="app-window app-window--hidden finder-window" id="finderWindow" aria-hidden="true">
+          <div class="app-window__chrome finder-window__chrome">
+            <div class="traffic-lights" aria-hidden="true">
+              <button class="traffic-lights__button traffic-lights__button--close" id="finderClose" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--minimize" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--maximize" type="button"></button>
+            </div>
+
+            <div class="finder-window__nav" aria-hidden="true">
+              <span class="finder-window__nav-button">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12.5 4.5L7 10l5.5 5.5"></path>
+                </svg>
+              </span>
+              <span class="finder-window__nav-button is-muted">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7.5 4.5L13 10l-5.5 5.5"></path>
+                </svg>
+              </span>
+            </div>
+
+            <div class="app-window__title finder-window__title">Desktop</div>
+
+            <div class="finder-window__toolbar" aria-hidden="true">
+              <div class="finder-window__toolbar-group">
+                <span class="finder-window__toolbar-icon">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="2.5" y="2.5" width="5" height="5" rx="1"></rect>
+                    <rect x="12.5" y="2.5" width="5" height="5" rx="1"></rect>
+                    <rect x="2.5" y="12.5" width="5" height="5" rx="1"></rect>
+                    <rect x="12.5" y="12.5" width="5" height="5" rx="1"></rect>
+                  </svg>
+                </span>
+                <span class="finder-window__toolbar-icon finder-window__toolbar-icon--stacked">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 7.2L10 3l5 4.2"></path>
+                    <path d="M5 12.8L10 17l5-4.2"></path>
+                  </svg>
+                </span>
+              </div>
+
+              <div class="finder-window__toolbar-group">
+                <span class="finder-window__toolbar-icon finder-window__toolbar-icon--wide">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="2.5" y="3" width="15" height="4" rx="1"></rect>
+                    <rect x="2.5" y="9" width="15" height="4" rx="1"></rect>
+                    <rect x="2.5" y="15" width="15" height="2.5" rx="1"></rect>
+                  </svg>
+                </span>
+                <span class="finder-window__toolbar-icon">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 3.2v8.4"></path>
+                    <path d="M6.5 6.5L10 3.2l3.5 3.3"></path>
+                    <path d="M4 11.7v3.1a1.2 1.2 0 001.2 1.2h9.6a1.2 1.2 0 001.2-1.2v-3.1"></path>
+                  </svg>
+                </span>
+                <span class="finder-window__toolbar-icon">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3.5 9.2V5.7a1.7 1.7 0 011.7-1.7h5.6l5.7 5.6v4.7a1.7 1.7 0 01-1.7 1.7H5.2a1.7 1.7 0 01-1.7-1.7V9.2z"></path>
+                    <path d="M10.8 4v4.2h4.1"></path>
+                  </svg>
+                </span>
+                <span class="finder-window__toolbar-icon finder-window__toolbar-icon--round">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="10" cy="10" r="5.7"></circle>
+                    <path d="M10 7.8h.01"></path>
+                    <path d="M8.5 10h3"></path>
+                    <path d="M8.5 12.3h2.2"></path>
+                  </svg>
+                </span>
+                <span class="finder-window__toolbar-icon finder-window__toolbar-icon--search">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="8.4" cy="8.4" r="4.9"></circle>
+                    <path d="M12.1 12.1l4.4 4.4"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-window__body finder-window__body">
+            <div class="finder-app">
+              <aside class="finder-app__sidebar">
+                <div class="finder-app__sidebar-item is-active">
+                  <span class="finder-app__sidebar-entry">
+                    <svg class="finder-app__sidebar-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3.5 6.4h4.7l1.2 1.2h7.1v6.6a1.4 1.4 0 01-1.4 1.4H4.9a1.4 1.4 0 01-1.4-1.4V6.4z"></path>
+                    </svg>
+                    <span>Desktop</span>
+                  </span>
+                  <span class="finder-app__sidebar-count" id="finderSidebarCount"></span>
+                </div>
+              </aside>
+
+              <section class="finder-app__main" aria-label="Desktop items in Finder">
+                <div class="finder-app__grid" id="finderItemGrid" aria-label="Desktop work items"></div>
+              </section>
+            </div>
+          </div>
+
+          <div class="window-resize-handle" aria-hidden="true"></div>
+        </section>
+
+        <section class="app-window app-window--hidden photos-window" id="photosWindow" aria-hidden="true">
+          <div class="app-window__chrome photos-window__chrome">
+            <div class="traffic-lights" aria-hidden="true">
+              <button class="traffic-lights__button traffic-lights__button--close" id="photosClose" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--minimize" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--maximize" type="button"></button>
+            </div>
+
+            <div class="photos-window__zoom" aria-hidden="true">
+              <span class="photos-window__zoom-mark">-</span>
+              <span class="photos-window__zoom-track"><span></span></span>
+              <span class="photos-window__zoom-mark">+</span>
+            </div>
+
+            <div class="app-window__title">Albums</div>
+
+            <div class="photos-window__search" aria-hidden="true">
+              <span class="photos-window__search-icon">⌕</span>
+              <span>Search</span>
+            </div>
+          </div>
+
+          <div class="app-window__body photos-window__body">
+            <div class="photos-app">
+              <aside class="photos-app__sidebar">
+                <p class="photos-app__sidebar-label">Albums</p>
+                <button class="photos-app__section-toggle is-expanded" id="photosAlbumsToggle" type="button" aria-expanded="true">
+                  <span class="photos-app__disclosure" aria-hidden="true"></span>
+                  <span>Albums</span>
+                </button>
+                <div class="photos-app__album-list" id="photosAlbumList"></div>
+              </aside>
+
+              <section class="photos-app__main">
+                <header class="photos-app__header">
+                  <div class="photos-app__header-row">
+                    <button class="photos-app__back-button" id="photosBackButton" type="button" hidden>Albums</button>
+                    <div class="photos-app__header-copy">
+                      <h1 class="photos-app__title" id="photosTitle">Albums</h1>
+                      <p class="photos-app__count" id="photosAlbumCount"></p>
+                    </div>
+                  </div>
+                </header>
+
+                <div class="photos-app__content">
+                  <div class="photos-app__grid" id="photosAlbumGrid" aria-label="Photo albums"></div>
+                  <section class="photos-app__detail" id="photosAlbumDetail" aria-label="Selected photo album" hidden>
+                    <div class="photos-app__detail-bar">
+                      <p class="photos-app__detail-hint" id="photosDetailHint">Click a photo to enlarge</p>
+                      <p class="photos-app__detail-filter">All Items</p>
+                    </div>
+                    <div class="photos-app__photo-grid" id="photosPhotoGrid" aria-label="Album photos"></div>
+                    <div class="photos-app__lightbox" id="photosLightbox" hidden>
+                      <button class="photos-app__lightbox-close" id="photosLightboxClose" type="button">Close</button>
+                      <figure class="photos-app__lightbox-figure">
+                        <div class="photos-app__lightbox-frame">
+                          <img class="photos-app__lightbox-image" id="photosLightboxImage" alt="" />
+                        </div>
+                        <figcaption class="photos-app__lightbox-meta">
+                          <p class="photos-app__lightbox-title" id="photosLightboxTitle"></p>
+                          <p class="photos-app__lightbox-count" id="photosLightboxCount"></p>
+                        </figcaption>
+                      </figure>
+                    </div>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="window-resize-handle" aria-hidden="true"></div>
+        </section>
+
+        <section class="app-window app-window--hidden notes-window" id="notesWindow" aria-hidden="true">
+          <div class="app-window__chrome notes-window__chrome">
+            <div class="traffic-lights" aria-hidden="true">
+              <button class="traffic-lights__button traffic-lights__button--close" id="notesClose" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--minimize" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--maximize" type="button"></button>
+            </div>
+            <div class="app-window__title">Notes</div>
+          </div>
+
+          <div class="app-window__body notes-window__body">
+            <div class="notes-app">
+              <aside class="notes-app__sidebar">
+                <div class="notes-app__profile">
+                  <p class="notes-app__sidebar-label">ME</p>
+                  <div class="notes-app__profile-card" aria-label="Profile picture">
+                    <img class="notes-app__profile-image" src="./assets/icons/IMG_0100.jpg" alt="Noah Barrington profile picture" />
+                  </div>
+                </div>
+
+                <p class="notes-app__sidebar-label">Folders</p>
+                <div class="notes-app__folder is-active">
+                  <span>CV</span>
+                  <span class="notes-app__folder-count">1</span>
+                </div>
+                <p class="notes-app__sidebar-label">Notes</p>
+                <div class="notes-app__note-card is-active">
+                  <p class="notes-app__note-card-title">Noah Barrington CV</p>
+                  <p class="notes-app__note-card-preview">Designer and photographer focused on branding, digital design, and image-making.</p>
+                </div>
+              </aside>
+
+              <section class="notes-app__content" aria-label="Curriculum vitae note">
+                <header class="notes-app__header">
+                  <p class="notes-app__date">Curriculum Vitae · 2026</p>
+                  <h1 class="notes-app__title">Noah Barrington</h1>
+                  <p class="notes-app__subtitle">Designer and Photographer</p>
+                </header>
+
+                <div class="notes-app__body">
+                  <section class="notes-app__section">
+                    <h2>Profile</h2>
+                    <p>
+                      Designer and photographer creating branding, digital design, editorial layouts,
+                      and image-led work across screen and print. Interested in typography, art
+                      direction, and building visual outcomes that feel clear, thoughtful, and
+                      contemporary.
+                    </p>
+                  </section>
+
+                  <section class="notes-app__section">
+                    <h2>Selected Work</h2>
+                    <ul class="notes-app__list">
+                      <li><strong>BuryCC</strong> · Matchday graphics, motion design, and a custom social media tool</li>
+                      <li><strong>Disfigure</strong> · Brand identity, website, apparel, campaigns, and photography</li>
+                      <li><strong>DayGo</strong> · Mobile app for daily challenges, progress tracking, and community features</li>
+                      <li><strong>Souliac</strong> · International wine branding and culturally inspired label design</li>
+                      <li><strong>Wedding Invites</strong> · Bespoke illustrated stationery with elegant typography and layout</li>
+                    </ul>
+                  </section>
+
+                  <section class="notes-app__section">
+                    <h2>Capabilities</h2>
+                    <div class="notes-app__tags" aria-label="CV capabilities">
+                      <span class="notes-app__tag">Graphic Design</span>
+                      <span class="notes-app__tag">Photography</span>
+                      <span class="notes-app__tag">Branding</span>
+                      <span class="notes-app__tag">UI/UX Design</span>
+                      <span class="notes-app__tag">Art Direction</span>
+                      <span class="notes-app__tag">Typography</span>
+                      <span class="notes-app__tag">Digital Design</span>
+                    </div>
+                  </section>
+
+                  <section class="notes-app__section">
+                    <h2>Education</h2>
+                    <ul class="notes-app__list">
+                      <li><strong>Loughborough University</strong> · Graphic Design · 2023 to Present</li>
+                      <li><strong>UTC@MediaCityUK</strong> · Graphic Design A Level: A* · Digital Design BTEC: D*D*D · 2023</li>
+                      <li><strong>Little Lever High School</strong> · GCSEs · 2021</li>
+                    </ul>
+                  </section>
+
+                  <section class="notes-app__section">
+                    <h2>Contact</h2>
+                    <ul class="notes-app__list">
+                      <li>noahbarrington@icloud.com</li>
+                      <li>@noah.barrington</li>
+                    </div>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="window-resize-handle" aria-hidden="true"></div>
+        </section>
+
+        <section class="app-window app-window--hidden finder-window bin-window" id="binWindow" aria-hidden="true">
+          <div class="app-window__chrome finder-window__chrome">
+            <div class="traffic-lights" aria-hidden="true">
+              <button class="traffic-lights__button traffic-lights__button--close" id="binClose" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--minimize" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--maximize" type="button"></button>
+            </div>
+
+            <div class="finder-window__nav" aria-hidden="true">
+              <span class="finder-window__nav-button">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12.5 4.5L7 10l5.5 5.5"></path>
+                </svg>
+              </span>
+              <span class="finder-window__nav-button is-muted">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7.5 4.5L13 10l-5.5 5.5"></path>
+                </svg>
+              </span>
+            </div>
+
+            <div class="app-window__title finder-window__title">Bin</div>
+
+            <div class="finder-window__toolbar" aria-hidden="true">
+              <div class="finder-window__toolbar-group">
+                <span class="finder-window__toolbar-icon">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="2.5" y="2.5" width="5" height="5" rx="1"></rect>
+                    <rect x="12.5" y="2.5" width="5" height="5" rx="1"></rect>
+                    <rect x="2.5" y="12.5" width="5" height="5" rx="1"></rect>
+                    <rect x="12.5" y="12.5" width="5" height="5" rx="1"></rect>
+                  </svg>
+                </span>
+                <span class="finder-window__toolbar-icon finder-window__toolbar-icon--stacked">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 7.2L10 3l5 4.2"></path>
+                    <path d="M5 12.8L10 17l5-4.2"></path>
+                  </svg>
+                </span>
+              </div>
+
+              <div class="finder-window__toolbar-group">
+                <span class="finder-window__toolbar-icon finder-window__toolbar-icon--wide">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <rect x="2.5" y="3" width="15" height="4" rx="1"></rect>
+                    <rect x="2.5" y="9" width="15" height="4" rx="1"></rect>
+                    <rect x="2.5" y="15" width="15" height="2.5" rx="1"></rect>
+                  </svg>
+                </span>
+                <span class="finder-window__toolbar-icon">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 3.2v8.4"></path>
+                    <path d="M6.5 6.5L10 3.2l3.5 3.3"></path>
+                    <path d="M4 11.7v3.1a1.2 1.2 0 001.2 1.2h9.6a1.2 1.2 0 001.2-1.2v-3.1"></path>
+                  </svg>
+                </span>
+                <span class="finder-window__toolbar-icon">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3.5 9.2V5.7a1.7 1.7 0 011.7-1.7h5.6l5.7 5.6v4.7a1.7 1.7 0 01-1.7 1.7H5.2a1.7 1.7 0 01-1.7-1.7V9.2z"></path>
+                    <path d="M10.8 4v4.2h4.1"></path>
+                  </svg>
+                </span>
+                <span class="finder-window__toolbar-icon finder-window__toolbar-icon--round">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="10" cy="10" r="5.7"></circle>
+                    <path d="M10 7.8h.01"></path>
+                    <path d="M8.5 10h3"></path>
+                    <path d="M8.5 12.3h2.2"></path>
+                  </svg>
+                </span>
+                <span class="finder-window__toolbar-icon finder-window__toolbar-icon--search">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="8.4" cy="8.4" r="4.9"></circle>
+                    <path d="M12.1 12.1l4.4 4.4"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-window__body finder-window__body">
+            <div class="finder-app">
+              <aside class="finder-app__sidebar">
+                <div class="finder-app__sidebar-item is-active">
+                  <span class="finder-app__sidebar-entry">
+                    <svg class="finder-app__sidebar-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3.5 6.4h4.7l1.2 1.2h7.1v6.6a1.4 1.4 0 01-1.4 1.4H4.9a1.4 1.4 0 01-1.4-1.4V6.4z"></path>
+                    </svg>
+                    <span>Bin</span>
+                  </span>
+                  <span class="finder-app__sidebar-count" id="binSidebarCount"></span>
+                </div>
+              </aside>
+
+              <section class="finder-app__main" aria-label="Bin items in Finder">
+                <div class="finder-app__grid" id="binItemGrid" aria-label="Archived projects in Bin"></div>
+              </section>
+            </div>
+          </div>
+
+          <div class="window-resize-handle" aria-hidden="true"></div>
+        </section>
+
+        <section class="app-window app-window--hidden" id="pixelPainterWindow" aria-hidden="true">
+          <div class="app-window__chrome">
+            <div class="traffic-lights" aria-hidden="true">
+              <button class="traffic-lights__button traffic-lights__button--close" id="painterClose" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--minimize" type="button"></button>
+              <button class="traffic-lights__button traffic-lights__button--maximize" type="button"></button>
+            </div>
+            <div class="app-window__title">Pixel Painter</div>
+          </div>
+
+          <div class="app-window__body">
+            <div class="pixel-painter">
+              <aside class="pixel-painter__sidebar">
+                <p class="pixel-painter__eyebrow">Pen Options</p>
+                <div class="pixel-painter__swatches" id="painterSwatches" aria-label="Pixel painter tools"></div>
+                <button class="info-window__button info-window__button--solid pixel-painter__export" id="painterExport" type="button">
+                  Export
+                </button>
+              </aside>
+
+              <div class="pixel-painter__stage">
+                <div class="pixel-canvas" id="pixelCanvas" aria-label="Pixel art canvas"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="window-resize-handle" aria-hidden="true"></div>
+        </section>
+
+        <section
+          class="system-dialog system-dialog--hidden"
+          id="exportErrorDialog"
+          aria-hidden="true"
+          role="alertdialog"
+          aria-modal="true"
+          aria-labelledby="exportErrorTitle"
+          aria-describedby="exportErrorMessage"
+        >
+          <div class="system-dialog__body">
+            <div class="system-dialog__icon" aria-hidden="true">
+              <img class="system-dialog__icon-image" src="./assets/icons/warning.png" alt="" />
+            </div>
+            <div class="system-dialog__copy">
+              <h2 class="system-dialog__title" id="exportErrorTitle">Yikes!</h2>
+              <p class="system-dialog__message" id="exportErrorMessage">Looks like you are in need of a graphic designer.</p>
+            </div>
+            <div class="system-dialog__actions">
+              <button class="info-window__button info-window__button--solid system-dialog__button" id="exportDialogButton" type="button">
+                OK
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="dock-region">
+        <div class="dock" id="dock" aria-label="application dock"></div>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

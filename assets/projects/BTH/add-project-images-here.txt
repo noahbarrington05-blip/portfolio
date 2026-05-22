@@ -1,0 +1,1 @@
+Drop BTH project images into this folder.

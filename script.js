@@ -355,7 +355,7 @@ const MAIL_DOCK_APP_ID = "mail";
 const PHOTOSHOP_DOCK_APP_ID = "photoshop";
 const BIN_DOCK_APP_ID = "bin";
 const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/noah.barrington/";
-const MAILTO_ADDRESS = "mailto:noahbarrington@icloud.com";
+const MAILTO_ADDRESS = "mailto:contact@noahbarrington.com";
 const photoshopDockIndex = dockApps.findIndex((app) => app.id === PHOTOSHOP_DOCK_APP_ID);
 const PHOTO_ALBUM_COVER_PATTERN = /\/1\.[^.]+$/i;
 const photoAlbumPhotos = {

@@ -3,7 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mac portfolio desktop</title>
+    <title>Noah Barrington</title>
+    <link rel="icon" type="image/png" href="./assets/icons/favicon.png" />
+    <link rel="apple-touch-icon" href="./assets/icons/favicon.png" />
+    <script>
+      const cacheBuster = Date.now();
+
+      document
+        .querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]')
+        .forEach((iconLink) => {
+          const iconUrl = new URL(iconLink.getAttribute("href"), window.location.href);
+          iconUrl.searchParams.set("v", cacheBuster);
+          iconLink.href = iconUrl.pathname + iconUrl.search;
+        });
+    </script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="is-booting">
